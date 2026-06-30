@@ -3,17 +3,42 @@
 import React, { useState } from 'react';
 
 const AI_FEATURES = [
-  { id: 'curriculum', label: 'Asistente de Currículum' },
-  { id: 'tareas', label: 'Constructor de Tareas' },
-  { id: 'calificacion', label: 'Asistente de Calificación' },
-  { id: 'tutores', label: 'Tutores IA' },
+  {
+    id: 'curriculum',
+    label: 'Asistente de Currículum',
+    description:
+      'Planifica unidades y secuencias de clase en segundos. Genera objetivos, actividades y recursos alineados al programa de cada nivel.',
+  },
+  {
+    id: 'tareas',
+    label: 'Constructor de Tareas',
+    description:
+      'Crea tareas diferenciadas con rúbricas claras al instante. Ajusta el nivel de dificultad y las instrucciones para cada grupo en un clic.',
+  },
+  {
+    id: 'calificacion',
+    label: 'Asistente de Calificación',
+    description:
+      'Califica trabajos escritos con criterios personalizados. Retroalimentación detallada, consistente y lista para compartir con el estudiante.',
+  },
+  {
+    id: 'tutores',
+    label: 'Tutores IA',
+    description:
+      'Un tutor disponible las 24 horas para cada estudiante. Explica conceptos, responde dudas y adapta el ritmo al nivel de cada uno.',
+  },
   {
     id: 'boletines',
     label: 'Asistente de Boletines',
     description:
       'Redacta boletines en minutos. Sintetiza el historial del estudiante en comentarios personalizados y basados en evidencia.',
   },
-  { id: 'redaccion', label: 'Asistente de Redacción' },
+  {
+    id: 'redaccion',
+    label: 'Asistente de Redacción',
+    description:
+      'Acompaña a los estudiantes en cada etapa de la escritura. Desde la idea inicial hasta la revisión final, con sugerencias específicas y constructivas.',
+  },
 ];
 
 function AIMockup() {
