@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { PRODUCT_TABS } from '../constants';
 import { ProductMockup } from '../components/ProductMockup';
 
@@ -23,6 +23,7 @@ function ArrowIcon() {
 export function Producto() {
   const [activeId, setActiveId] = useState(PRODUCT_TABS[0].id);
   const active = PRODUCT_TABS.find((t) => t.id === activeId)!;
+  const rowRef = useRef<HTMLDivElement>(null);;
 
   return (
     <section
@@ -52,8 +53,8 @@ export function Producto() {
           </h2>
         </div>
 
-        {/* Pill marquee — infinite loop */}
-        <style>{`@keyframes pill-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}`}</style>
+        {/* Pill row — static infinite look, click to center */}
+        <style>{`.pill-row::-webkit-scrollbar{display:none}`}</style>
         <div
           className="mb-8"
           style={{
@@ -63,17 +64,24 @@ export function Producto() {
           }}
         >
           <div
-            className="flex items-center gap-2"
-            style={{ width: 'max-content', animation: 'pill-scroll 28s linear infinite' }}
-            onMouseEnter={(e) => (e.currentTarget.style.animationPlayState = 'paused')}
-            onMouseLeave={(e) => (e.currentTarget.style.animationPlayState = 'running')}
+            ref={rowRef}
+            className="pill-row"
+            style={{ overflowX: 'auto', scrollbarWidth: 'none' }}
           >
+            <div className="flex items-center gap-2" style={{ width: 'max-content' }}>
             {[...PRODUCT_TABS, ...PRODUCT_TABS].map((tab, i) => {
               const isActive = tab.id === activeId;
               return (
                 <button
                   key={i}
-                  onClick={() => setActiveId(tab.id)}
+                  onClick={(e) => {
+                    setActiveId(tab.id);
+                    const row = rowRef.current;
+                    if (!row) return;
+                    const rr = row.getBoundingClientRect();
+                    const br = e.currentTarget.getBoundingClientRect();
+                    row.scrollTo({ left: row.scrollLeft + br.left - rr.left - (rr.width - br.width) / 2, behavior: 'smooth' });
+                  }}
                   className="flex-shrink-0"
                   style={{
                     padding: '7px 16px',
@@ -94,6 +102,7 @@ export function Producto() {
                 </button>
               );
             })}
+            </div>
           </div>
         </div>
 
