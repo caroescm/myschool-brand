@@ -1,16 +1,5 @@
 'use client';
 
-import React, { useState } from 'react';
-
-function PhoneIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="5" y="2" width="14" height="20" rx="2" />
-      <circle cx="12" cy="17" r="1" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
 function PlayIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -20,8 +9,6 @@ function PlayIcon() {
 }
 
 export function Hero() {
-  const [phone, setPhone] = useState('');
-
   return (
     <section
       id="inicio"
@@ -173,56 +160,6 @@ export function Hero() {
           className="absolute"
           style={{ width: 80, height: 80, borderRadius: '50%', background: '#DCD2F3', right: 120, bottom: 30 }}
         />
-      </div>
-
-      {/* ── Bottom lead-capture bar ── */}
-      <div className="max-w-[1240px] mx-auto px-12 pb-16 -mt-6 relative z-10">
-        <div
-          className="flex items-center justify-between gap-6 bg-white rounded-2xl px-6 py-4"
-          style={{ border: '1px solid #E9ECEF', boxShadow: '0 6px 18px -6px rgba(13,17,22,0.12), 0 2px 4px rgba(13,17,22,0.04)' }}
-        >
-          {/* Left: icon + text */}
-          <div className="flex items-center gap-4">
-            <div
-              className="inline-grid place-items-center flex-shrink-0 rounded-xl text-white"
-              style={{ width: 44, height: 44, background: '#0D1116' }}
-            >
-              <PhoneIcon />
-            </div>
-            <div>
-              <p className="text-[#0D1116] font-semibold m-0" style={{ fontSize: 14 }}>
-                Personaliza la experiencia para tu colegio
-              </p>
-              <p className="text-[#5F6B77] m-0" style={{ fontSize: 12 }}>
-                Tu colegio merece una plataforma que lo entienda.
-              </p>
-            </div>
-          </div>
-
-          {/* Right: phone input + submit */}
-          <div className="flex items-center gap-3 flex-shrink-0">
-            <input
-              type="tel"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              placeholder="Ingresa tu número"
-              className="h-11 px-4 rounded-[10px] bg-white text-[#0D1116] placeholder-[#8B95A0] outline-none transition-shadow focus:ring-2 focus:ring-[#0FA9E8]/20"
-              style={{
-                fontSize: 14, width: 200,
-                border: '1px solid #D9DEE3',
-                fontFamily: 'inherit',
-              }}
-              onFocus={(e) => (e.currentTarget.style.borderColor = '#34B5EB')}
-              onBlur={(e) => (e.currentTarget.style.borderColor = '#D9DEE3')}
-            />
-            <button
-              className="inline-flex items-center h-11 px-5 rounded-[10px] bg-[#0D1116] hover:bg-[#2A333C] text-white font-medium transition-colors"
-              style={{ fontSize: 14, letterSpacing: '-0.005em', cursor: 'pointer', border: 'none' }}
-            >
-              Enviar
-            </button>
-          </div>
-        </div>
       </div>
     </section>
   );
