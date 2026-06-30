@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { PRODUCT_TABS } from '../constants';
 import { ProductMockup } from '../components/ProductMockup';
 
@@ -23,17 +23,6 @@ function ArrowIcon() {
 export function Producto() {
   const [activeId, setActiveId] = useState(PRODUCT_TABS[0].id);
   const active = PRODUCT_TABS.find((t) => t.id === activeId)!;
-  const activeIdx = PRODUCT_TABS.findIndex((t) => t.id === activeId);
-  const pillRefs = useRef<(HTMLButtonElement | null)[]>([]);
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    pillRefs.current[activeIdx]?.scrollIntoView({
-      inline: 'center',
-      block: 'nearest',
-      behavior: 'smooth',
-    });
-  }, [activeIdx]);
 
   return (
     <section
@@ -56,34 +45,34 @@ export function Producto() {
               fontWeight: 600,
               color: '#0D1116',
               margin: '0 auto',
-              maxWidth: 680,
+              whiteSpace: 'nowrap',
             }}
           >
             Una plataforma para todos los flujos de trabajo de tu colegio
           </h2>
         </div>
 
-        {/* Pill carousel — centered active, fades on edges */}
+        {/* Pill marquee — infinite loop */}
+        <style>{`@keyframes pill-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}`}</style>
         <div
           className="mb-8"
           style={{
             overflow: 'hidden',
-            WebkitMaskImage: 'linear-gradient(to right, transparent, black 18%, black 82%, transparent)',
-            maskImage: 'linear-gradient(to right, transparent, black 18%, black 82%, transparent)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
+            maskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
           }}
         >
           <div
-            ref={scrollRef}
-            className="flex items-center gap-2 overflow-x-auto pb-1"
-            style={{ scrollbarWidth: 'none', scrollBehavior: 'smooth' }}
+            className="flex items-center gap-2"
+            style={{ width: 'max-content', animation: 'pill-scroll 28s linear infinite' }}
+            onMouseEnter={(e) => (e.currentTarget.style.animationPlayState = 'paused')}
+            onMouseLeave={(e) => (e.currentTarget.style.animationPlayState = 'running')}
           >
-            <span className="flex-shrink-0" style={{ width: '40vw' }} />
-            {PRODUCT_TABS.map((tab, i) => {
+            {[...PRODUCT_TABS, ...PRODUCT_TABS].map((tab, i) => {
               const isActive = tab.id === activeId;
               return (
                 <button
-                  key={tab.id}
-                  ref={(el) => { pillRefs.current[i] = el; }}
+                  key={i}
                   onClick={() => setActiveId(tab.id)}
                   className="flex-shrink-0"
                   style={{
@@ -105,7 +94,6 @@ export function Producto() {
                 </button>
               );
             })}
-            <span className="flex-shrink-0" style={{ width: '40vw' }} />
           </div>
         </div>
 
