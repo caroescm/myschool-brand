@@ -37,7 +37,7 @@ const AI_FEATURES = [
     id: 'redaccion',
     label: 'Asistente de Redacción',
     description:
-      'Acompaña a los estudiantes en cada etapa de la escritura. Desde la idea inicial hasta la revisión final, con sugerencias específicas y constructivas.',
+      'Acompaña a los estudiantes en cada etapa de la escritura, desde la idea inicial hasta la revisión final, con sugerencias claras.',
   },
 ];
 
@@ -238,23 +238,28 @@ export function IA() {
                         color: isActive ? '#0D1116' : '#8B95A0',
                         display: 'block',
                         lineHeight: 1.4,
+                        transition: 'color 220ms ease',
                       }}
                     >
                       {feature.label}
                     </span>
-                    {isActive && feature.description && (
-                      <span
-                        style={{
-                          fontSize: 13.5,
-                          color: '#5F6B77',
-                          display: 'block',
-                          marginTop: 6,
-                          lineHeight: 1.6,
-                        }}
-                      >
-                        {feature.description}
-                      </span>
-                    )}
+                    <span
+                      style={{
+                        fontSize: 13.5,
+                        color: '#5F6B77',
+                        display: '-webkit-box',
+                        WebkitLineClamp: 3,
+                        WebkitBoxOrient: 'vertical',
+                        overflow: 'hidden',
+                        lineHeight: 1.6,
+                        maxHeight: isActive ? 66 : 0,
+                        marginTop: isActive ? 6 : 0,
+                        opacity: isActive ? 1 : 0,
+                        transition: 'max-height 260ms ease, margin-top 260ms ease, opacity 260ms ease',
+                      }}
+                    >
+                      {feature.description}
+                    </span>
                   </button>
                   {i < AI_FEATURES.length - 1 && (
                     <div style={{ height: 1, background: '#E9ECEF' }} />
