@@ -29,7 +29,7 @@ export function FAQ() {
   return (
     <section
       id="faq"
-      className="bg-white border-t border-[#E9ECEF]"
+      className="bg-white"
       style={{
         padding: '80px 0',
         fontFamily: "'Inter','Helvetica Neue',Helvetica,Arial,sans-serif",

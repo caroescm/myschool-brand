@@ -28,7 +28,7 @@ export function Producto() {
   return (
     <section
       id="producto"
-      className="bg-white border-t border-[#E9ECEF]"
+      className="bg-white"
       style={{
         padding: '80px 0',
         fontFamily: "'Inter','Helvetica Neue',Helvetica,Arial,sans-serif",
