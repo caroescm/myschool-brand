@@ -16,19 +16,6 @@ export function Hero() {
       style={{ fontFamily: "'Inter','Helvetica Neue',Helvetica,Arial,sans-serif", WebkitFontSmoothing: 'antialiased' }}
     >
       <div className="max-w-[1240px] mx-auto px-12 pt-20">
-        {/* Eyebrow pill */}
-        <span
-          className="inline-flex items-center gap-2"
-          style={{
-            fontSize: 11.5, fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase',
-            color: '#086C97', padding: '6px 12px', borderRadius: 999,
-            background: '#EAF7FE', border: '1px solid #CFEDFB',
-          }}
-        >
-          <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#0FA9E8', flexShrink: 0 }} />
-          Para colegios K–12
-        </span>
-
         {/* Headline + CTAs */}
         <div className="flex items-start justify-between mt-6 gap-8">
           <h1
