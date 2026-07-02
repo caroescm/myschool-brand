@@ -12,7 +12,7 @@ export const PRODUCT_TABS = [
     label: 'Comunicaciones',
     headline: 'Centro de comunicaciones y mensajería',
     description:
-      'Mensajería con personal del colegio y familias por grado y sección, con comunicados masivos segmentados y clasificados automáticamente.',
+      'Mensajería con personal del colegio y familias por grado y sección, con comunicados masivos segmentados',
     bullets: [
       'Mensajería con personal del colegio y familias por grado y sección',
       'Comunicados masivos segmentados por nivel, grado y sección',
