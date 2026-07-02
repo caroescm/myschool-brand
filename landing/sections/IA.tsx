@@ -174,7 +174,6 @@ function AIMockup() {
 
 export function IA() {
   const [activeId, setActiveId] = useState('ahorro-de-tiempo');
-  const active = AI_FEATURES.find((f) => f.id === activeId)!;
 
   return (
     <section
