@@ -7,205 +7,188 @@ export const NAV_LINKS = [
 ];
 
 export const PRODUCT_TABS = [
-  // Gestión Académica
-  {
-    id: 'cursos',
-    label: 'Cursos',
-    headline: 'Planes de estudio organizados por sección',
-    description:
-      'Gestiona materias, asignaciones y contenidos por sección desde un solo lugar, con visibilidad completa para docentes y coordinadores.',
-    bullets: [
-      'Planificación curricular por sección y nivel',
-      'Asignación de tareas y fechas de entrega',
-      'Seguimiento de avance por materia',
-      'Acceso docente desde cualquier dispositivo',
-    ],
-  },
-  {
-    id: 'calificaciones',
-    label: 'Calificaciones',
-    headline: 'Rendimiento académico en tiempo real',
-    description:
-      'Registra y consulta calificaciones al instante. Los reportes se actualizan solos y las familias acceden a los resultados apenas se publican.',
-    bullets: [
-      'Libro de notas digital por materia',
-      'Reportes automáticos por periodo',
-      'Historial académico completo del alumno',
-      'Exporta boletines en PDF con un clic',
-    ],
-  },
-  {
-    id: 'horarios',
-    label: 'Horarios',
-    headline: 'Cuadros de horario para aulas y docentes',
-    description:
-      'Crea y publica horarios por sección y docente. Todos acceden a su horario actualizado desde la app, sin papel ni confusión.',
-    bullets: [
-      'Horarios por aula, sección y docente',
-      'Detección automática de conflictos',
-      'Publicación instantánea para familias',
-      'Modificaciones en tiempo real',
-    ],
-  },
-  {
-    id: 'asistencia',
-    label: 'Asistencia',
-    headline: 'Control de asistencia y reportes para familias',
-    description:
-      'Registra la asistencia diaria por sección en segundos. Los padres reciben alertas automáticas y acceden al historial desde la app.',
-    bullets: [
-      'Registro por sección y periodo',
-      'Alertas automáticas a familias',
-      'Reportes históricos exportables',
-      'Vista consolidada por alumno',
-    ],
-  },
-  // Finanzas
-  {
-    id: 'cobranzas',
-    label: 'Cobranzas',
-    headline: 'Cuotas y mensualidades sin trabajo manual',
-    description:
-      'Configura los calendarios de pago y deja que MySchool envíe los recordatorios automáticos. Menos llamadas, más pagos a tiempo.',
-    bullets: [
-      'Calendario de cuotas y vencimientos',
-      'Recordatorios automáticos por WhatsApp o email',
-      'Estados de cuenta por familia',
-      'Historial completo de cobros',
-    ],
-  },
-  {
-    id: 'morosidad',
-    label: 'Morosidad',
-    headline: 'Detecta y gestiona la morosidad por nivel',
-    description:
-      'Identifica en segundos qué familias tienen pagos pendientes y actúa antes de que la deuda crezca, con seguimiento por nivel y sección.',
-    bullets: [
-      'Dashboard de morosidad por nivel',
-      'Alertas tempranas de deuda',
-      'Gestión de acuerdos de pago',
-      'Reportes para dirección y administración',
-    ],
-  },
-  {
-    id: 'pagos',
-    label: 'Pagos',
-    headline: 'Registro y conciliación de pagos centralizado',
-    description:
-      'Registra cada pago recibido y concílialo con las cuotas pendientes. Sin planillas de Excel, sin errores de doble registro.',
-    bullets: [
-      'Registro de pagos en efectivo, transferencia y otros',
-      'Conciliación automática con cuotas',
-      'Comprobantes digitales para familias',
-      'Cierres de caja y reportes diarios',
-    ],
-  },
-  // Comunicación
   {
     id: 'comunicaciones',
     label: 'Comunicaciones',
-    headline: 'Comunicación directa con cada familia',
+    headline: 'Centro de comunicaciones y mensajería',
     description:
-      'Envía mensajes individuales o grupales a familias por sección, nivel o toda la institución — desde una sola bandeja de entrada.',
+      'Mensajería con personal del colegio y familias por grado y sección, con comunicados masivos segmentados y clasificados automáticamente.',
     bullets: [
-      'Chat 1:1 y grupal con padres y tutores',
-      'Comunicados por sección o nivel',
-      'Historial completo de conversaciones',
-      'Acceso desde web y app móvil',
+      'Mensajería con personal del colegio y familias por grado y sección',
+      'Comunicados masivos segmentados por nivel, grado y sección',
+      'Clasificación de mensajes por comunicado, agenda, reunión, evento e interno',
+      'Mensajes categorizados aparecen automáticamente en el calendario institucional, sin pasos extras',
     ],
   },
   {
-    id: 'notificaciones',
-    label: 'Notificaciones',
-    headline: 'Avisos y circulares que llegan de verdad',
+    id: 'calendario',
+    label: 'Calendario',
+    headline: 'Calendario institucional',
     description:
-      'Publica circulares, avisos urgentes o comunicados institucionales y asegúrate de que cada familia los reciba y los confirme.',
+      'Agenda y notifica las fechas relevantes para la institución en una vista unificada, visible para el colegio y las familias.',
     bullets: [
-      'Notificaciones push a la app familiar',
-      'Confirmación de lectura por familia',
-      'Circulares por nivel o institución',
-      'Archivo de comunicados publicados',
+      'Vista unificada de comunicados, agenda, reuniones, eventos, avisos internos y cobranza',
+      'Visible para el colegio y las familias',
     ],
   },
   {
-    id: 'buzon',
-    label: 'Buzón',
-    headline: 'Atención familiar con seguimiento de tickets',
+    id: 'atencion-familiar',
+    label: 'Atención familiar',
+    headline: 'Resolución de casos de familias',
     description:
-      'Las familias escriben sus consultas y el equipo del colegio responde con orden. Cada solicitud queda registrada hasta su resolución.',
+      'Sistema de tickets para resolver consultas de familias, con bandeja personal organizada por estado para cada profesor o área.',
     bullets: [
-      'Bandeja centralizada de consultas familiares',
-      'Tickets con estado y responsable asignado',
-      'Tiempo de respuesta promedio visible',
-      'Historial por familia',
+      'Sistema de tickets para resolver consultas',
+      'Filtros por categoría, prioridad, fecha',
+      'Bandeja personal para cada profesor o área, organizada en Asignados, En Progreso y Cerrados',
     ],
   },
-  // Vida Estudiantil
   {
-    id: 'actividades',
-    label: 'Actividades',
-    headline: 'Eventos y extracurriculares en un calendario',
+    id: 'aula',
+    label: 'Aula',
+    headline: 'Listado de aulas por nivel, grado y sección',
     description:
-      'Organiza y comunica actividades, salidas y eventos del colegio. Las familias ven todo en su calendario y confirman participación.',
+      'Visualiza cada aula con su horario, estudiantes, notas de conducta y asistencia desde un mismo lugar.',
     bullets: [
-      'Calendario de actividades institucional',
-      'Inscripción y confirmación de asistencia',
-      'Recordatorios automáticos a familias',
-      'Gestión de permisos y autorizaciones',
+      'Vista por grado, sección o docente',
+      'Horario semanal visual por aula',
+      'Visualización de estudiantes, notas de conducta y asistencia',
+    ],
+  },
+  {
+    id: 'personal',
+    label: 'Personal',
+    headline: 'Directorio del personal del colegio',
+    description:
+      'Directorio completo por área o función, con datos de contacto, rol y formación de cada persona.',
+    bullets: [
+      'Directorio completo por área o función (docentes, tutor o administrativo)',
+      'Datos de contacto y rol de cada persona',
+      'Ficha de experiencia relevante y formación académica por personal',
+    ],
+  },
+  {
+    id: 'estudiantes',
+    label: 'Estudiantes',
+    headline: 'El perfil completo de cada estudiante',
+    description:
+      'Toda la información del estudiante en una sola ficha, con búsqueda instantánea por DNI, nombre, nivel, grado o sección.',
+    bullets: [
+      'Información general, académica, financiera, horario, calificaciones, asistencia, conducta, psicología y tópico por ficha',
+      'Búsqueda por DNI, nombre, nivel, grado o sección',
+    ],
+  },
+  {
+    id: 'gestion-academica',
+    label: 'Gestión Académica',
+    headline: 'Administración de áreas, calendarización y asignación docente',
+    description:
+      'Configura la apertura y cierre de año, asigna profesores y mantén calificaciones y reportes de rendimiento en tiempo real.',
+    bullets: [
+      'Configuración de apertura y cierre de año, asignación de profesores, calendarización y libreta de notas',
+      'Áreas, competencias, capacidades y desempeños alineados al Ministerio de Educación, reorganizables para el colegio',
+      'Calificaciones y reportes de rendimiento en tiempo real',
+      'Horarios y asistencia conectados al mismo sistema',
+    ],
+  },
+  {
+    id: 'gestion-formativa',
+    label: 'Gestión Formativa',
+    headline: 'Configuración de criterios de conducta y participación de padres',
+    description:
+      'Define criterios formativos por nivel o sección y da seguimiento a la participación de las familias en el proceso.',
+    bullets: [
+      'Criterios y subcriterios configurables por nivel o sección',
+      'Seguimiento de la participación de las familias en el proceso formativo',
+      'Asignación de tutores por aula',
+    ],
+  },
+  {
+    id: 'cursos',
+    label: 'Cursos',
+    headline: 'Gestiona y visualiza los cursos del colegio',
+    description:
+      'Estructura completa alineada al Ministerio, con IA que sugiere comentarios de justificación por estudiante.',
+    bullets: [
+      'Estructura completa: área, competencia, capacidad, desempeño, con pesos configurables para calcular notas automáticamente',
+      'Cuentan con IA para sugerir comentarios de justificación para cada estudiante, basados en su historial y en los lineamientos del Ministerio',
+      'Asignaciones y planes de estudio organizados por sección',
     ],
   },
   {
     id: 'conducta',
     label: 'Conducta',
-    headline: 'Registro de conducta con seguimiento familiar',
+    headline: 'Registro y seguimiento de conducta por aula',
     description:
-      'Documenta incidentes, reconocimientos y acuerdos de convivencia. Las familias son notificadas y el historial queda vinculado al perfil del alumno.',
+      'Evalúa la convivencia y las actividades del aula con un promedio general de tutoría, y observaciones individuales por estudiante.',
     bullets: [
-      'Registro de incidentes y reconocimientos',
-      'Notificación inmediata a la familia',
-      'Historial por alumno y periodo',
-      'Seguimiento de acuerdos de convivencia',
+      'Evaluación por normas de convivencia, más actividades del aula y del colegio, y un promedio general de tutoría por estudiante',
+      'Observación individual por estudiante para explicar el contexto de las notas',
+      'Cierre por trimestres con plazo definido, el tutor puede extender el plazo si es necesario',
+    ],
+  },
+  {
+    id: 'asistencia',
+    label: 'Asistencia',
+    headline: 'Gestión y seguimiento de asistencia estudiantil',
+    description:
+      'Estados claros por estudiante con alertas automáticas y un tablero de control con el porcentaje general del colegio.',
+    bullets: [
+      'Estados claros por estudiante: presente, tardanza, ausencia',
+      'Alertas automáticas de rachas justificadas de inasistencia por estudiante',
+      'Tablero de control que permite visualizar qué aulas han cerrado su asistencia diaria y porcentajes generales de asistencia por fecha del colegio',
     ],
   },
   {
     id: 'salud',
     label: 'Salud',
-    headline: 'Fichas de salud y alertas para el equipo',
+    headline: 'Fichas de observaciones de salud por estudiante',
     description:
-      'Accede a las fichas de salud de cada alumno desde cualquier dispositivo. El equipo recibe alertas sobre condiciones relevantes antes de cada actividad.',
+      'Ficha médica completa y casos psicológicos con seguimiento hasta el cierre, con contacto de emergencia a la mano.',
     bullets: [
-      'Ficha médica completa por alumno',
-      'Alertas de alergias y condiciones crónicas',
-      'Registro de incidentes de salud en el colegio',
-      'Acceso rápido para el equipo de enfermería',
+      'Ficha médica completa: grupo sanguíneo, seguro de accidentes, clínica o seguro privado, alergias, vacunas, medicación crónica y patologías previas',
+      'Métricas básicas con historial (peso, talla, IMC) y contacto de emergencia a la mano',
+      'Casos psicológicos con motivo de consulta, resumen clínico, sesiones registradas y seguimiento hasta el cierre del caso',
+    ],
+  },
+  {
+    id: 'financiero',
+    label: 'Financiero',
+    headline: 'Manejo de cobranzas, morosidad, becas y registro de pagos',
+    description:
+      'Detecta la morosidad por antigüedad de deuda y proyecta ingresos y estado financiero en tiempo real.',
+    bullets: [
+      'Detección de morosidad con nivel de antigüedad de deuda por estudiante',
+      'Realización de pagos desde la plataforma',
+      'Proyección de ingresos y estado financiero en tiempo real',
     ],
   },
 ];
 
 export const FAQ_ITEMS = [
   {
-    question: '¿Cómo puede MySchool ayudar a mi colegio a crecer?',
+    question: 'Compito por matrícula con otros colegios en mi área. ¿MySchool puede cambiar cómo las familias perciben al colegio?',
     answer:
-      'MySchool centraliza todas las operaciones del colegio — desde la asistencia hasta las comunicaciones con padres — en una sola plataforma, permitiendo que tu equipo se enfoque en lo que más importa: la educación.',
+      'La comunicación y la transparencia pesan en la decisión de una familia de quedarse o no en un colegio. Cuando los padres ven asistencia, pagos y avance académico claros y a tiempo, sin tener que ir a preguntar a la dirección, hacen nota de ello, del tiempo recuperado, terminando de reflejarse en la renovación de matrícula.',
   },
   {
-    question: '¿Qué módulos incluye la plataforma MySchool?',
+    question: 'No todos los profesores se sienten igual de cómodos con la tecnología. ¿Eso va a ser un problema?',
     answer:
-      'La plataforma incluye gestión de estudiantes, comunicaciones con familias, control de asistencia, calendario escolar, boletines de notas, y herramientas de IA para docentes.',
+      'La plataforma está pensada para ser intuitiva desde el primer uso, pero esto no es sólo una promesa. El equipo de MySchool acompaña directamente a los profesores que lo necesiten, resolviendo dudas y ajustando lo que haga falta, para que el nivel de comodidad con la tecnología de cada uno no sea una barrera.',
   },
   {
-    question: '¿Cómo funciona la implementación de IA en MySchool?',
+    question: '¿Puedo personalizar la plataforma a la forma que trabaja mi colegio?',
     answer:
-      'Nuestra IA ayuda a los docentes a redactar comentarios personalizados en los boletines, generar planes de clase y analizar el progreso de los estudiantes, ahorrando hasta 10 horas semanales.',
+      'Sí. MySchool no solo cumple con los estándares y estructura que exige el ministerio, también está construido para adaptar los módulos a la forma de operar de cada colegio.',
   },
   {
-    question: '¿Cuánto tiempo toma implementar MySchool en un colegio?',
+    question: '¿Todos los módulos están integrados entre sí?',
     answer:
-      'La configuración inicial toma menos de una semana. Nuestro equipo te acompaña en cada paso, desde la migración de datos hasta la capacitación del personal.',
+      'Sí, comparten la misma base de información. Por ejemplo, la asistencia registrada en la libreta de notas aparece igualmente en el perfil del estudiante y en los reportes para familias, sin que alguien tenga que pasarlo de un sistema a otro.',
   },
   {
-    question: '¿MySchool funciona para colegios de todos los tamaños?',
+    question: '¿Es una plataforma web o se requiere de instalación?',
     answer:
-      'Sí. Trabajamos con colegios desde 100 hasta más de 3,000 estudiantes. La plataforma se adapta al tamaño y estructura de cada institución.',
+      'Es 100% web, una gran ventaja, evitando instalaciones pesadas, actualizaciones manuales por computadora o depender de máquinas del colegio. Se accede desde cualquier navegador, en cualquier equipo, así que el equipo directivo puede revisar todo incluso desde el celular, sin estar atado a una oficina.',
   },
 ];

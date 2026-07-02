@@ -4,40 +4,34 @@ import React, { useState } from 'react';
 
 const AI_FEATURES = [
   {
-    id: 'curriculum',
-    label: 'Asistente de Currículum',
+    id: 'apoyo-no-reemplazo',
+    label: 'Apoyo a tu equipo, no un reemplazo',
     description:
-      'Planifica unidades y secuencias de clase en segundos. Genera objetivos, actividades y recursos alineados al programa de cada nivel.',
+      'La IA detecta, resume y sugiere, la decisión final es tomada por tu equipo. El agente convierte señales dispersas (asistencia, notas, pagos, conducta) en una acción concreta, no en un reemplazo del criterio humano.',
   },
   {
-    id: 'tareas',
-    label: 'Constructor de Tareas',
+    id: 'sin-configuracion',
+    label: 'Ya integrada, sin configuración',
     description:
-      'Crea tareas diferenciadas con rúbricas claras al instante. Ajusta el nivel de dificultad y las instrucciones para cada grupo en un clic.',
+      'No requiere instalaciones extras. El agente de IA ya se encuentra integrado a MySchool y funciona según la información que el colegio ya tiene (asistencia, pagos, notas).',
   },
   {
-    id: 'calificacion',
-    label: 'Asistente de Calificación',
+    id: 'supervision-humana',
+    label: 'Siempre bajo supervisión humana',
     description:
-      'Califica trabajos escritos con criterios personalizados. Retroalimentación detallada, consistente y lista para compartir con el estudiante.',
+      'Nadie recibe una sugerencia de la IA directamente. Todo pasa primero por una persona del colegio, que decide si la usa, la edita o la descarta. La responsabilidad de lo que sale hacia una familia sigue siendo del profesor o del administrador, igual que hoy.',
   },
   {
-    id: 'tutores',
-    label: 'Tutores IA',
+    id: 'ahorro-de-tiempo',
+    label: 'Ahorro de tiempo real',
     description:
-      'Un tutor disponible las 24 horas para cada estudiante. Explica conceptos, responde dudas y adapta el ritmo al nivel de cada uno.',
+      'El caso más claro se ve con el módulo de cobranzas: en lugar de revisar familia por familia los pagos atrasados, el agente ya analiza y alerta el porcentaje de morosidad. Con IA pasas de buscar el problema a directamente resolverlo.',
   },
   {
-    id: 'boletines',
-    label: 'Asistente de Boletines',
+    id: 'uso-opcional',
+    label: 'Uso opcional para cada docente',
     description:
-      'Redacta boletines en minutos. Sintetiza el historial del estudiante en comentarios personalizados y basados en evidencia.',
-  },
-  {
-    id: 'redaccion',
-    label: 'Asistente de Redacción',
-    description:
-      'Acompaña a los estudiantes en cada etapa de la escritura, desde la idea inicial hasta la revisión final, con sugerencias claras.',
+      'El agente siempre entrega resúmenes y sugerencias que el profesor o el área correspondiente debe aprobar manualmente, por lo que se pueden ignorar sin bloquear ningún proceso.',
   },
 ];
 
@@ -179,7 +173,7 @@ function AIMockup() {
 }
 
 export function IA() {
-  const [activeId, setActiveId] = useState('boletines');
+  const [activeId, setActiveId] = useState('ahorro-de-tiempo');
   const active = AI_FEATURES.find((f) => f.id === activeId)!;
 
   return (

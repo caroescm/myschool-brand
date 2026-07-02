@@ -43,7 +43,7 @@ export function Hero() {
               maxWidth: '62%',
             }}
           >
-            El día escolar,
+            Menos horas administrando,
             <br />
             <em
               style={{
@@ -54,7 +54,7 @@ export function Hero() {
                 letterSpacing: '-0.02em',
               }}
             >
-              organizado.
+              más horas educando.
             </em>
           </h1>
 
@@ -65,7 +65,7 @@ export function Hero() {
               className="inline-flex items-center h-11 px-6 rounded-[10px] bg-[#0D1116] hover:bg-[#2A333C] text-white font-medium transition-colors no-underline"
               style={{ fontSize: 14, letterSpacing: '-0.005em' }}
             >
-              Solicitar Demo
+              Agenda una demo hoy
             </a>
             <a
               href="#producto"
@@ -78,10 +78,24 @@ export function Hero() {
               >
                 <PlayIcon />
               </span>
-              Conocer más
+              Descubre MySchool
             </a>
           </div>
         </div>
+
+        {/* Subtitle */}
+        <p
+          style={{
+            marginTop: 24,
+            maxWidth: 560,
+            fontSize: 18,
+            lineHeight: 1.5,
+            color: '#5F6B77',
+          }}
+        >
+          MySchool se encarga del papeleo, para que ese tiempo vuelva al aula.
+          Todas las operaciones de tu colegio en un solo lugar.
+        </p>
       </div>
 
       {/* ── Decorative circles row ── */}

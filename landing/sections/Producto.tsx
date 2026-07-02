@@ -13,9 +13,9 @@ const CARD_PALETTE = [
   { bg: '#F8D6C2', accent: '#B0541D', text: '#B0541D' },
 ];
 
-const PEEK_W = '1144px'; // 1240px max-width container minus 48px px-12 padding
-const HALF_W = '572px';
-const GAP = '32px';
+const PEEK_W = 1144; // 1240px max-width container minus 48px px-12 padding
+const GAP = 32;
+const STEP = PEEK_W + GAP;
 const CARD_H = 520;
 
 function CheckIcon() {
@@ -83,11 +83,7 @@ function CardContent({ tab, colors }: { tab: ProductTab; colors: CardColor }) {
 export function Producto() {
   const [activeId, setActiveId] = useState(PRODUCT_TABS[0].id);
   const activeIndex = PRODUCT_TABS.findIndex((t) => t.id === activeId);
-  const active = PRODUCT_TABS[activeIndex];
-  const prev = PRODUCT_TABS[(activeIndex - 1 + PRODUCT_TABS.length) % PRODUCT_TABS.length];
-  const next = PRODUCT_TABS[(activeIndex + 1) % PRODUCT_TABS.length];
   const colorFor = (id: string) => CARD_PALETTE[PRODUCT_TABS.findIndex((t) => t.id === id) % CARD_PALETTE.length];
-  const activeColor = colorFor(activeId);
   const rowRef = useRef<HTMLDivElement>(null);
   const pillRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
@@ -180,64 +176,50 @@ export function Producto() {
 
       </div>
 
-      {/* Peeking card carousel — full-bleed, active card staged front-and-center, neighbors tucked underneath */}
-      <style>{`
-        @keyframes productoStageIn {
-          from { opacity: 0; transform: translateX(10px) scale(0.99); }
-          to { opacity: 1; transform: translateX(0) scale(1); }
-        }
-      `}</style>
+      {/* Peeking card carousel — full-bleed, track slides horizontally so cards glide into the center stage */}
       <div
-        className="flex justify-center overflow-hidden mt-8"
-        style={{ position: 'relative', width: '100vw', left: '50%', transform: 'translateX(-50%)' }}
+        className="overflow-hidden mt-8"
+        style={{ position: 'relative', width: '100vw', left: '50%', transform: 'translateX(-50%)', height: CARD_H }}
       >
-          {/* Left peek — full-size card positioned mostly off-canvas, cropped to a sliver by the container */}
-          <button
-            onClick={() => setActiveId(prev.id)}
-            className="absolute rounded-2xl cursor-pointer border-0 p-0 overflow-hidden transition-[background,transform] duration-300"
-            style={{
-              width: PEEK_W, top: 0, bottom: 0, left: `calc(50% - ${HALF_W} - ${PEEK_W} - ${GAP})`,
-              background: colorFor(prev.id).bg,
-              transform: 'scale(0.93)', transformOrigin: 'right center',
-              zIndex: 1,
-              boxShadow: 'inset -12px 0 24px -12px rgba(0,0,0,0.12)',
-              opacity: 0.4,
-            }}
-            aria-label={prev.label}
-          >
-            <CardContent tab={prev} colors={colorFor(prev.id)} />
-          </button>
-
-          {/* Active card — the featured stage, in normal flow so it defines the carousel's height */}
-          <div
-            key={activeId}
-            className="grid overflow-hidden rounded-2xl transition-colors duration-300"
-            style={{
-              width: PEEK_W, height: CARD_H, position: 'relative', zIndex: 2,
-              background: activeColor.bg,
-              boxShadow: '0 12px 24px -18px rgba(13,17,22,0.15)',
-              animation: 'productoStageIn 0.35s ease',
-            }}
-          >
-            <CardContent tab={active} colors={activeColor} />
-          </div>
-
-          {/* Right peek — full-size card positioned mostly off-canvas, cropped to a sliver by the container */}
-          <button
-            onClick={() => setActiveId(next.id)}
-            className="absolute rounded-2xl cursor-pointer border-0 p-0 overflow-hidden transition-[background,transform] duration-300"
-            style={{
-              width: PEEK_W, top: 0, bottom: 0, right: `calc(50% - ${HALF_W} - ${PEEK_W} - ${GAP})`,
-              background: colorFor(next.id).bg,
-              transform: 'scale(0.93)', transformOrigin: 'left center',
-              zIndex: 1,
-              boxShadow: 'inset 12px 0 24px -12px rgba(0,0,0,0.12)',
-              opacity: 0.4,
-            }}
-            aria-label={next.label}
-          >
-            <CardContent tab={next} colors={colorFor(next.id)} />
-          </button>
+        <div
+          className="flex"
+          style={{
+            gap: GAP,
+            transform: `translateX(calc(50vw - ${PEEK_W / 2}px - ${activeIndex * STEP}px))`,
+            transition: 'transform 0.5s cubic-bezier(0.65, 0, 0.35, 1)',
+          }}
+        >
+          {PRODUCT_TABS.map((tab, i) => {
+            const distance = i - activeIndex;
+            const isActive = distance === 0;
+            const colors = colorFor(tab.id);
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveId(tab.id)}
+                className="rounded-2xl cursor-pointer border-0 p-0 overflow-hidden flex-shrink-0"
+                style={{
+                  width: PEEK_W,
+                  height: CARD_H,
+                  background: colors.bg,
+                  transform: isActive ? 'scale(1)' : 'scale(0.93)',
+                  transformOrigin: distance < 0 ? 'right center' : 'left center',
+                  transition: 'transform 0.5s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.5s ease, box-shadow 0.5s ease',
+                  zIndex: isActive ? 2 : 1,
+                  opacity: isActive ? 1 : 0.4,
+                  boxShadow: isActive
+                    ? '0 12px 24px -18px rgba(13,17,22,0.15)'
+                    : distance < 0
+                    ? 'inset -12px 0 24px -12px rgba(0,0,0,0.12)'
+                    : 'inset 12px 0 24px -12px rgba(0,0,0,0.12)',
+                }}
+                aria-label={tab.label}
+              >
+                <CardContent tab={tab} colors={colors} />
+              </button>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
