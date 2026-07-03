@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { FAQ_ITEMS } from '../constants';
+import { useReveal } from '../hooks/useReveal';
 
 function ChevronIcon({ open }: { open: boolean }) {
   return (
@@ -22,18 +23,21 @@ function ChevronIcon({ open }: { open: boolean }) {
 }
 
 export function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const reveal = useReveal<HTMLElement>();
 
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
   return (
     <section
+      ref={reveal.ref}
       id="faq"
       className="bg-white"
       style={{
         padding: '80px 0',
         fontFamily: "'Inter','Helvetica Neue',Helvetica,Arial,sans-serif",
         WebkitFontSmoothing: 'antialiased',
+        ...reveal.style,
       }}
     >
       <div className="max-w-[1240px] mx-auto px-12">

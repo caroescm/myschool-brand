@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useReveal } from '../hooks/useReveal';
 
 const AI_FEATURES = [
   {
@@ -174,15 +175,18 @@ function AIMockup() {
 
 export function IA() {
   const [activeId, setActiveId] = useState('ahorro-de-tiempo');
+  const reveal = useReveal<HTMLElement>();
 
   return (
     <section
+      ref={reveal.ref}
       id="ia"
       className="bg-white"
       style={{
         padding: '80px 0',
         fontFamily: "'Inter','Helvetica Neue',Helvetica,Arial,sans-serif",
         WebkitFontSmoothing: 'antialiased',
+        ...reveal.style,
       }}
     >
       <div className="max-w-[1240px] mx-auto px-12">

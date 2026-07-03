@@ -1,4 +1,5 @@
 import React from 'react';
+import { useReveal } from '../hooks/useReveal';
 
 function MSMark() {
   return (
@@ -25,13 +26,16 @@ const FOOTER_COLS = [
 ];
 
 export function Footer() {
+  const reveal = useReveal<HTMLElement>();
   return (
     <footer
+      ref={reveal.ref}
       style={{
         background: '#0D1116',
         fontFamily: "'Inter','Helvetica Neue',Helvetica,Arial,sans-serif",
         WebkitFontSmoothing: 'antialiased',
         color: '#5F6B77',
+        ...reveal.style,
       }}
     >
       {/* Top section */}

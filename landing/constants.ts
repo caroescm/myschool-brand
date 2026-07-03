@@ -14,7 +14,6 @@ export const PRODUCT_TABS = [
     description:
       'Mensajería con personal del colegio y familias por grado y sección, con comunicados masivos segmentados',
     bullets: [
-      'Mensajería con personal del colegio y familias por grado y sección',
       'Comunicados masivos segmentados por nivel, grado y sección',
       'Clasificación de mensajes por comunicado, agenda, reunión, evento e interno',
       'Mensajes categorizados aparecen automáticamente en el calendario institucional, sin pasos extras',

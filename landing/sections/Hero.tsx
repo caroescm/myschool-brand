@@ -86,6 +86,23 @@ export function Hero() {
       </div>
 
       {/* ── Decorative circles row ── */}
+      <style>{`
+        @keyframes circleEnter {
+          from { opacity: 0; transform: translate(var(--x, 0px), 28px) scale(0.7); }
+          to { opacity: 1; transform: translate(var(--x, 0px), 0) scale(1); }
+        }
+        @keyframes circleFloat {
+          0%, 100% { transform: translate(var(--x, 0px), 0); }
+          25% { transform: translate(calc(var(--x, 0px) + 10px), -26px); }
+          50% { transform: translate(var(--x, 0px), -34px); }
+          75% { transform: translate(calc(var(--x, 0px) - 10px), -26px); }
+        }
+        .hero-circle {
+          animation: circleEnter 0.7s cubic-bezier(0.16,1,0.3,1) both,
+                     circleFloat 4.5s ease-in-out infinite;
+          animation-delay: var(--enter-delay, 0s), calc(var(--enter-delay, 0s) + 0.7s);
+        }
+      `}</style>
       <div
         className="relative overflow-hidden mt-12 w-full"
         style={{ height: 300 }}
@@ -93,26 +110,27 @@ export function Hero() {
       >
         {/* Far left: peach large circle (half-cut) */}
         <div
-          className="absolute"
-          style={{ width: 240, height: 240, borderRadius: '50%', background: '#F8D6C2', left: -80, bottom: 20 }}
+          className="absolute hero-circle"
+          style={{ width: 240, height: 240, borderRadius: '50%', background: '#F8D6C2', left: -80, bottom: 20, ['--enter-delay' as string]: '0s' }}
         />
         {/* Left amber circle */}
         <div
-          className="absolute"
-          style={{ width: 110, height: 110, borderRadius: '50%', background: '#FBE0A8', left: 120, bottom: 80 }}
+          className="absolute hero-circle"
+          style={{ width: 110, height: 110, borderRadius: '50%', background: '#FBE0A8', left: 120, bottom: 80, ['--enter-delay' as string]: '0.08s' }}
         />
         {/* Left peach half-circle */}
         <div
-          className="absolute"
-          style={{ width: 200, height: 200, borderRadius: '50%', background: '#F8D6C2', left: 160, bottom: -30 }}
+          className="absolute hero-circle"
+          style={{ width: 200, height: 200, borderRadius: '50%', background: '#F8D6C2', left: 160, bottom: -30, ['--enter-delay' as string]: '0.16s' }}
         />
 
         {/* Large MySchool blue circle (center) */}
         <div
-          className="absolute flex items-center justify-center"
+          className="absolute flex items-center justify-center hero-circle"
           style={{
             width: 280, height: 280, borderRadius: '50%', background: '#0FA9E8',
-            left: '50%', transform: 'translateX(-240px)', bottom: -20,
+            left: '50%', bottom: -20,
+            ['--x' as string]: '-240px', ['--enter-delay' as string]: '0.24s',
           }}
         >
           {/* Mini logo mark inside */}
@@ -124,11 +142,12 @@ export function Hero() {
 
         {/* Avatar circle 1 */}
         <div
-          className="absolute flex items-center justify-center"
+          className="absolute flex items-center justify-center hero-circle"
           style={{
             width: 200, height: 200, borderRadius: '50%', background: '#BFEED9',
-            border: '5px solid #fff', left: '50%', transform: 'translateX(0px)', bottom: 10,
+            border: '5px solid #fff', left: '50%', bottom: 10,
             overflow: 'hidden',
+            ['--x' as string]: '0px', ['--enter-delay' as string]: '0.32s',
           }}
         >
           <span style={{ fontWeight: 700, fontSize: 52, color: '#1E8F5F', fontFamily: 'Inter' }}>JG</span>
@@ -136,11 +155,12 @@ export function Hero() {
 
         {/* Avatar circle 2 */}
         <div
-          className="absolute flex items-center justify-center"
+          className="absolute flex items-center justify-center hero-circle"
           style={{
             width: 220, height: 220, borderRadius: '50%', background: '#BFE7DF',
-            border: '5px solid #fff', left: '50%', transform: 'translateX(170px)', bottom: -10,
+            border: '5px solid #fff', left: '50%', bottom: -10,
             overflow: 'hidden',
+            ['--x' as string]: '170px', ['--enter-delay' as string]: '0.4s',
           }}
         >
           <span style={{ fontWeight: 700, fontSize: 56, color: '#2A7A6B', fontFamily: 'Inter' }}>AL</span>
@@ -148,18 +168,18 @@ export function Hero() {
 
         {/* Right amber circle */}
         <div
-          className="absolute"
-          style={{ width: 100, height: 100, borderRadius: '50%', background: '#FBE0A8', right: 160, bottom: 100 }}
+          className="absolute hero-circle"
+          style={{ width: 100, height: 100, borderRadius: '50%', background: '#FBE0A8', right: 160, bottom: 100, ['--enter-delay' as string]: '0.48s' }}
         />
         {/* Right peach large circle (half-cut) */}
         <div
-          className="absolute"
-          style={{ width: 230, height: 230, borderRadius: '50%', background: '#F8D6C2', right: -70, bottom: 20 }}
+          className="absolute hero-circle"
+          style={{ width: 230, height: 230, borderRadius: '50%', background: '#F8D6C2', right: -70, bottom: 20, ['--enter-delay' as string]: '0.56s' }}
         />
         {/* Right lilac accent circle */}
         <div
-          className="absolute"
-          style={{ width: 80, height: 80, borderRadius: '50%', background: '#DCD2F3', right: 120, bottom: 30 }}
+          className="absolute hero-circle"
+          style={{ width: 80, height: 80, borderRadius: '50%', background: '#DCD2F3', right: 120, bottom: 30, ['--enter-delay' as string]: '0.64s' }}
         />
       </div>
     </section>

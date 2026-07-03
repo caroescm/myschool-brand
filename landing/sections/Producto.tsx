@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { PRODUCT_TABS } from '../constants';
+import { useReveal } from '../hooks/useReveal';
 
 // ponytail: brand pastel pairs from MySchool Brand Kit.html, cycled by tab index
 const CARD_PALETTE = [
@@ -81,6 +82,7 @@ function CardContent({ tab, colors }: { tab: ProductTab; colors: CardColor }) {
 }
 
 export function Producto() {
+  const reveal = useReveal<HTMLElement>();
   const [activeId, setActiveId] = useState(PRODUCT_TABS[0].id);
   const activeIndex = PRODUCT_TABS.findIndex((t) => t.id === activeId);
   const colorFor = (id: string) => CARD_PALETTE[PRODUCT_TABS.findIndex((t) => t.id === id) % CARD_PALETTE.length];
@@ -93,20 +95,19 @@ export function Producto() {
     if (!row || !btn) return;
     const rr = row.getBoundingClientRect();
     const br = btn.getBoundingClientRect();
-    const margin = 24; // recenter once the active pill is within this many px of the edge
-    if (br.left < rr.left + margin || br.right > rr.right - margin) {
-      row.scrollTo({ left: row.scrollLeft + br.left - rr.left - (rr.width - br.width) / 2, behavior: 'smooth' });
-    }
+    row.scrollTo({ left: row.scrollLeft + br.left - rr.left - (rr.width - br.width) / 2, behavior: 'smooth' });
   }, [activeId, activeIndex]);
 
   return (
     <section
+      ref={reveal.ref}
       id="producto"
       className="bg-white"
       style={{
         padding: '80px 0',
         fontFamily: "'Inter','Helvetica Neue',Helvetica,Arial,sans-serif",
         WebkitFontSmoothing: 'antialiased',
+        ...reveal.style,
       }}
     >
       <div className="max-w-[1240px] mx-auto px-12">

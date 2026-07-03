@@ -1,4 +1,5 @@
 import React from 'react';
+import { useReveal } from '../hooks/useReveal';
 
 function ArrowIcon() {
   return (
@@ -9,14 +10,17 @@ function ArrowIcon() {
 }
 
 export function Demo() {
+  const reveal = useReveal<HTMLElement>();
   return (
     <section
+      ref={reveal.ref}
       id="demo"
       style={{
         background: 'linear-gradient(160deg, #EAF7FE 0%, #F4F6F8 100%)',
         padding: '80px 0',
         fontFamily: "'Inter','Helvetica Neue',Helvetica,Arial,sans-serif",
         WebkitFontSmoothing: 'antialiased',
+        ...reveal.style,
       }}
     >
       <div className="max-w-[1240px] mx-auto px-12">
